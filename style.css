@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+
+:root {
+  --linearGradient: #00c3ff, #ffff1c;
+  --blue: #00c3ff;
+  --red: #f52a40;
+  --white-1: #f2f2f2;
+  --white-2: #faf3f3;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.card img {
+  width: 5rem;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to right, var(--linearGradient));
+  overflow: hidden;
+
+  position: relative;
+}
+
+/* botones */
+.btn-new {
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
+  padding: 1rem 2rem;
+  margin-right: 3rem;
+  border: none;
+  border-radius: 0.7rem;
+  color: var(--blue);
+  background-color: var(--white-2);
+
+  transition: all 0.5s;
+}
+.btn-new:hover {
+  filter: brightness(110%);
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+.btn-new:active.btn-new:focus {
+  outline: none;
+  transform: scale(0.98) translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn-new p {
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+
+  display: inline-block;
+  background-image: linear-gradient(to right, var(--linearGradient));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Puntaje */
+.right {
+  position: absolute;
+  left: 3rem;
+  top: 2rem;
+}
+.label-score,
+.label-highscore {
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  font-weight: 700;
+  color: var(--white-2);
+}
+.label-score span,
+.label-highscore span {
+  margin-left: 1rem;
+}
+
+/* card */
+.wrapper {
+  width: 52rem;
+  height: 52rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -42%);
+
+  -moz-perspective: 150rem;
+  perspective: 150rem;
+  /* transform-style: preserve-3d;*/
+}
+
+.side {
+  width: 100%;
+  padding: 2.5rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  background-color: var(--white-1);
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.8s ease;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.back-text {
+  height: 100%;
+  transform: rotateY(180deg);
+  background-color: var(--white-2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper.active .back-text {
+  transform: rotateY(0);
+}
+.wrapper.active .containerCards {
+  transform: rotateY(-180deg);
+}
+
+/* back-text -- typography */
+.wrapper.active .back-text h1 {
+  font-size: 9rem;
+  letter-spacing: 0.5rem;
+  font-family: 'Bad Script', 'Lato', sans-serif;
+  display: flex;
+  color: transparent;
+}
+.wrapper.active .back-text h1 span {
+  animation: animate 3s linear infinite;
+  animation-delay: calc(0.1s * var(--i));
+  color: transparent;
+}
+
+@keyframes animate {
+  0% {
+    color: #fff;
+    filter: blur(0.2rem) hue-rotate(0deg);
+    text-shadow: 0 0 1rem var(--blue), 0 0 2rem var(--blue),
+      0 0 4rem var(--blue), 0 0 8rem var(--blue), 0 0 12rem var(--blue),
+      0 0 20rem var(--blue), 0 0 30rem var(--blue), 0 0 40rem var(--blue);
+  }
+
+  30%,
+  70% {
+    color: #fff;
+    filter: blur(0.1rem) hue-rotate(360deg); /* blur(0.2rem) */
+    text-shadow: 0 0 1rem var(--blue), 0 0 2rem var(--blue),
+      0 0 4rem var(--blue), 0 0 8rem var(--blue), 0 0 12rem var(--blue),
+      0 0 20rem var(--blue);
+  }
+
+  100% {
+    color: transparent;
+    filter: blur(0.2rem) hue-rotate(0deg);
+    text-shadow: none;
+  }
+}
+
+/***/
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-rows: repeat(4, minmax(10rem, auto));
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+
+  perspective: 80rem;
+}
+
+.cards .card {
+  list-style: none;
+  width: 10rem;
+  height: 10rem;
+  cursor: pointer;
+
+  /* para las cards */
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/* para la cards*/
+.card.shake {
+  animation: shake 0.35s ease-in-out;
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-1.3rem);
+  }
+
+  40% {
+    transform: translateX(1.3rem);
+  }
+
+  60% {
+    transform: translateX(-0.8rem);
+  }
+
+  80% {
+    transform: translateX(0.8rem);
+  }
+}
+
+.cards .card .view {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.7rem;
+
+  /* Es para la card */
+  position: absolute;
+  transition: all 0.25s linear;
+  backface-visibility: hidden;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.cards .card .front-view {
+  background-image: linear-gradient(to left bottom, var(--linearGradient));
+  background-size: cover;
+}
+.cards .card .front-view p {
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--white-1);
+}
+
+/* Girando las card */
+.cards .card .back-view {
+  transform: rotateY(-180deg);
+}
+
+/* agregando la clase flip desde javascript */
+.cards .card.flip .front-view {
+  transform: rotateY(180deg);
+}
+.cards .card.flip .back-view {
+  transform: rotateY(0);
+}
+
+/** Media Query ----------------------------------------------------------------- */
+
+/* smaller or equal to 1200px */
+@media all and (max-width: 75em) {
+  html {
+    font-size: 68.75%;
+  }
+}
+
+/* smaller or equal to   1075px */
+@media all and (max-width: 67.1875em) {
+  html {
+    font-size: 50%; /* 8px / 16 = 50% */
+  }
+}
+
+/* smallPhone --  424 */
+@media all and (max-width: 26.5em) {
+  html {
+    font-size: 35%;
+  }
+}
+
+/* smallPhone -- 299 */
+@media all and (max-width: 18.6875em) {
+  html {
+    font-size: 25%;
+  }
+}
+
+/*when a width is large than 1800px, so the minimum width at which this will
+ occur is 1800 pixels and if it's more, it will happen, and if it's less,*/
+@media all and (min-width: 112.5em) {
+  html {
+    font-size: 80%;
+  }
+}

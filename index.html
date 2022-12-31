@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="/Tools/normalize/normalize.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link href="/Tools/prefix/prefix.js" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>MemoryGame</title>
+  </head>
+  <body>
+    <!---
+    <div class="gameOver">
+      <div class="text">
+        <h1>Game Over</h1>
+        <h2>Points: <span class="points">12</span></h2>
+        <h2>High Score: <span class="highScore">15</span></h2>
+        <button type="button">Play Again</button>
+      </div>
+    </div>
+    -->
+
+    <div class="container">
+      <!-- Botones -->
+      <button class="btn-new"><p>Nuevo Juego</p></button>
+      <section class="right">
+        <p class="label-score">Puntaje:<span class="score">16</span></p>
+        <p class="label-highscore">
+          Puntuación más alta:<span class="highscore">0</span>
+        </p>
+      </section>
+
+      <!-- Game -->
+      <div class="wrapper">
+        <div class="containerCards side">
+          <ul class="cards">
+            <!-- 01 -->
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-1.png" />
+              </div>
+            </li>
+
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-1.png" />
+              </div>
+            </li>
+
+            <!-- 02 -->
+
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-2.png" />
+              </div>
+            </li>
+
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-2.png" />
+              </div>
+            </li>
+
+            <!-- 03 -->
+
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-3.png" />
+              </div>
+            </li>
+
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-3.png" />
+              </div>
+            </li>
+
+            <!-- 04 -->
+
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-4.png" />
+              </div>
+            </li>
+
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-4.png" />
+              </div>
+            </li>
+
+            <!-- 05 -->
+
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-5.png" />
+              </div>
+            </li>
+
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-5.png" />
+              </div>
+            </li>
+
+            <!-- 06 -->
+
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-6.png" />
+              </div>
+            </li>
+
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-6.png" />
+              </div>
+            </li>
+
+            <!-- 07 -->
+
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-7.png" />
+              </div>
+            </li>
+
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-7.png" />
+              </div>
+            </li>
+
+            <!-- 08 -->
+
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-8.png" />
+              </div>
+            </li>
+
+            <li class="card">
+              <div class="view front-view">
+                <p>?</p>
+              </div>
+
+              <div class="view back-view">
+                <img src="./Img/emoji-8.png" />
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- texto de atras -->
+        <div class="back-text side">
+          <h1 class="titulo">
+            <!--<span style="--i: 1">G</span>
+            <span style="--i: 2">a</span>
+            <span style="--i: 2">n</span>
+            <span style="--i: 2">a</span>
+            <span style="--i: 2">d</span>
+            <span style="--i: 2">o</span>
+            <span style="--i: 2">r</span>
+            <span style="--i: 2">.</span>-->
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
