@@ -307,8 +307,7 @@ body {
   }
 }
 
-/*when a width is large than 1800px, so the minimum width at which this will
- occur is 1800 pixels and if it's more, it will happen, and if it's less,*/
+
 @media all and (min-width: 112.5em) {
   html {
     font-size: 80%;
