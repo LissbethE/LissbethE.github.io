@@ -111,10 +111,6 @@ const unflipCard = function () {
 
 // Flip Card
 const flipCard = function () {
-  /* let's declare a lockBoard variable and set it to false and the first 
-  statements are inside our flipCard function will be to return from the function 
-  if lockBoard is true so the rest won't get executed in case is not a match we are 
-  going to lock the board and only unlock it after cards have been flipped */
   if (lockBoard) return;
   if (this === card1) return;
 
@@ -125,11 +121,6 @@ const flipCard = function () {
     hasFlippedCard = true;
     card1 = this;
     cardImg1 = card1.querySelector('.back-view').querySelector('img').src;
-
-    /* we can switch the else clause for a return statement in the end of our if 
-    because if the condition evaluates to true the return statement is gonna stop
-    the function execution there and in case it's not true the code executed it's 
-    the one that would be inside the house clause */
     return;
   }
 
@@ -161,38 +152,3 @@ btnNew.addEventListener('click', () => {
     c.addEventListener('click', flipCard);
   });
 });
-
-/*
-const flipCard = function () {
-  this.classList.add('flip');
-
-  if (!hasFlippedCard) {
-    // Primer click
-    hasFlippedCard = true;
-    
-    card1 = this;
-    cardImg1 = card1.querySelector('.back-view').querySelector('img').src;
-  } else {
-    // Segundo click
-    hasFlippedCard = false;
-
-    card2 = this;
-    cardImg2 = card2.querySelector('.back-view').querySelector('img').src;
-
-    // Do cards match?
-    checkForMatch();
-  }
-};
-
-const checkForMatch = function () {
-  // Do cards match?
-   from the first card and the second card are the same if they are we are gonna
-    remove the event listener from the cards to prevent uh them from being clicked 
-    again and if it's not we are gonna then unflip the cards back to the original 
-    state okay so let's add the condition 
-  if (cardImg1 === cardImg2) disabledCard();
-  else unflipCard();
-};
-
-
-*/
